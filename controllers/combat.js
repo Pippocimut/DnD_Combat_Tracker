@@ -85,3 +85,38 @@ exports.getOrders = (req, res, next) => {
     })
     .catch(err => console.log(err));
 };
+
+exports.getAddToken = (req,res,next) => {
+
+  res.render('combat/add-token', {
+    path: '/add-token',
+    pageTitle: 'Add Token',
+    isAuthenticated: req.session.isLoggedIn
+  });
+}
+exports.postAddToken = (req,res,next) => {
+
+  var image = req.file
+  var name =  req.body.name
+
+  if(!image){
+    console.log("No image found")
+  }
+
+  const token = new Token({
+    imageUrl: image.path,
+    title: name,
+    position: {
+      x: 0,
+      y: 0
+    }
+  })
+
+  token.save().then(result =>{
+    res.redirect("/");
+  }).catch(err => {
+    console.log(err)
+    res.redirect("/add-token")
+  })
+  
+}

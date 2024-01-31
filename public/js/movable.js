@@ -11,7 +11,7 @@ if(!cellSize){
     var cellSize = 50;
 }    
 const canvas = document.getElementById('canvas')
-const numColumns = 25;
+const numColumns = 15;
 const numRows = 10;
 var canvasWitdh = numColumns*cellSize;
 var canvasHeigth = numRows*cellSize;
@@ -31,8 +31,6 @@ function makeRows(rows, cols) {
     container.appendChild(cell).className = "grid-item";
   };
 };
-
-
 
 makeRows(numRows, numColumns);
 

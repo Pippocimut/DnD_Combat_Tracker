@@ -46,6 +46,7 @@ const fileStorage = multer.diskStorage({
     cb(null, 'images');
   },
   filename: (req, file, cb) => {
+    console.log("Saving file")
     let date = new Date().toISOString().replace('.','').replace(/\:/gi,'')
     const newFilename = date+"-"+file.originalname
     console.log("new file name"+newFilename)
@@ -58,6 +59,7 @@ const fileStorage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
+  console.log("filerting")
   if (
     file.mimetype === 'image/png' ||
     file.mimetype === 'image/jpg' ||
@@ -84,7 +86,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
+const shopRoutes = require('./routes/combat');
 const authRoutes = require('./routes/auth');
 const { error } = require('console');
 

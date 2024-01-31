@@ -1,0 +1,17 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+   
+    <main>
+        <h2>Lets add a new friend</h2>
+        <form action="add-token" method="post" enctype="multipart/form-data">
+            <input type="text" id="name" name="name" value="token1">
+            <input type="file" name="image" id="image">
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </main>    
+
+<%- include('../includes/end.ejs') %>
